@@ -1,0 +1,34 @@
+service: zavala_club
+
+image: d/zavala_club
+
+servers:
+  web:
+    - zavala.club
+  host: app.example.com
+
+registry:
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+env:
+  secret:
+    - RAILS_MASTER_KEY
+  clear:
+    SOLID_QUEUE_IN_PUMA: true
+
+aliases:
+  console: app exec --interactive --reuse "bin/rails console"
+  dbc: app exec --interactive --reuse "bin/rails dbconsole"
+  logs: app logs -f
+  shell: app exec --interactive --reuse "bash"
+
+volumes:
+  - "zavala_club_storage:/rails/storage"
+
+asset_path: /rails/public/assets
+
+builder:
+  arch: amd64
+  ssh:
+    user: deployer
