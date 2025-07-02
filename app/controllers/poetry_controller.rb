@@ -1,2 +1,7 @@
-class PoemController < ApplicationController
+class PoetryController < ApplicationController
+  def index
+  end
+
+  def show
+  end
 end
