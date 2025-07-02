@@ -1,4 +1,3 @@
-import { application } from "./application"
-
-import PoemController from "./poem_controller"
-application.register("poem", PoemController)
+import { application } from "controllers/application"
+import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
+eagerLoadControllersFrom("controllers", application)
