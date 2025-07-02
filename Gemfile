@@ -6,7 +6,7 @@ gem "bootsnap", require: false
 gem "importmap-rails"
 gem "kamal", require: false
 gem "poefy", ">= 2.0"
-gem "poefy-pg", ">= 2.0"
+gem "poefy-sqlite3", ">= 2.0"
 gem "propshaft"
 gem "puma", ">= 5.0"
 gem "solid_cable"
