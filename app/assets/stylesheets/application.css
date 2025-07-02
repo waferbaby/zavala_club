@@ -1,10 +1,24 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+@font-face {
+  font-family: 'alice';
+  src: url("./alice.ttf");
+}
+
+body {
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  display: grid;
+  font-family: 'alice';
+  font-size: 1.2em;
+  font-size: 300%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100vh;
+  justify-items: center;
+  padding: 0;
+}
+
+pre { font-family: 'alice'; }
+
+@media all and (max-width: 600px) {
+  body { font-size: 120%; }
+}
