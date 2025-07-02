@@ -12,6 +12,7 @@ Rails.application.configure do
   config.consider_all_requests_local = true
   config.eager_load = false
   config.enable_reloading = true
+  config.log_level = :info
   config.server_timing = true
 
   if Rails.root.join("tmp/caching-dev.txt").exist?
