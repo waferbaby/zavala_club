@@ -25,9 +25,11 @@ class ImportManifestJob < ApplicationJob
       end
     end.compact.join("\n")
 
-    Rails.logger.info("Storing lines in #{database_path}")
+    Rails.logger.info("Storing lines in #{database_path}...")
 
     poefy.make_database!(lines)
     poefy.close
+
+    Rails.logger.info("Done.")
   end
 end
