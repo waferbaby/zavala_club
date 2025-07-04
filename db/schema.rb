@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema[8.0].define(version: 2025_07_01_100602) do
   create_table "poems", force: :cascade do |t|
-    t.integer "type"
+    t.integer "form"
     t.text "contents"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
