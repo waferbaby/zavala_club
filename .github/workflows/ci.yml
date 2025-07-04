@@ -7,10 +7,11 @@ on:
 
 jobs:
   scan_ruby:
+    name: Lint and Security Checks
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Check out code
         uses: actions/checkout@v4
 
       - name: Set up Ruby
