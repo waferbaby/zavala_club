@@ -18,7 +18,7 @@ class ImportManifestJob < ApplicationJob
     Rails.logger.info("Preparing data...")
 
     JSON.parse(File.read(path)).map do |key, entry|
-      description = entry.dig("displayProperties", "description").gsub(/[^a-z.,'\s\!\?]/i, " ").gsub(/\s{2,}/, " ")
+      description = entry.dig("displayProperties", "description").gsub(/[^a-z\u00C0-\u024F\u1E00-\u1EFF.,'\s\!\?]/i, " ").gsub(/\s{2,}/, " ")
 
       description.split(/\n\n|\.|,|—|;/).each do |line|
         lines << line.strip.gsub(/^'|'$|^.+\: /i, "") if line.length > 1
