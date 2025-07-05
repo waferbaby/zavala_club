@@ -10,11 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_01_100602) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_04_231945) do
   create_table "poems", force: :cascade do |t|
     t.integer "form"
     t.text "contents"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "digest"
+    t.index ["digest"], name: "index_poems_on_digest", unique: true
   end
 end
