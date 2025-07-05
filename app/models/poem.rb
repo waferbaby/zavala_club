@@ -14,7 +14,7 @@ class Poem < ApplicationRecord
     contents = Poefy::Poem.new(database_path, local: true).poem(options).join("\n")
     return nil unless contents.length > 0
 
-    digest = Digest::SHA256.hexdigest(contents)[0...10]
+    digest = Digest::SHA256.hexdigest(contents)[0...16]
 
     match = Poem.find_by(digest: digest)
     return match if match.present?
