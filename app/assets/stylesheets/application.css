@@ -3,22 +3,37 @@
   src: url("./alice.ttf");
 }
 
+a {
+  color: #777;
+}
+
 body {
-  align-items: center;
   background-color: #000;
   color: #fff;
-  display: grid;
   font-family: 'alice';
-  font-size: 1.2em;
-  font-size: 300%;
-  grid-template-columns: 1fr;
-  grid-template-rows: 100vh;
-  justify-items: center;
+  font-size: 1.0em;
   padding: 0;
 }
 
-pre { font-family: 'alice'; }
+footer {
+  margin-top: 20px;
+  text-align: right;
+}
+
+main {
+  align-items: end;
+  display: grid;
+  grid-template-rows: 95% 1fr;
+  height: 50vh;
+  justify-content: center;
+}
+
+pre {
+  font-family: 'alice';
+  font-size: 300%;
+  margin: 0;
+}
 
 @media all and (max-width: 600px) {
-  body { font-size: 120%; }
+  pre { font-size: 100%; }
 }
