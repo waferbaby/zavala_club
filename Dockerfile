@@ -1,8 +1,6 @@
 # syntax=docker/dockerfile:1
 # check=error=true
 
-# For a containerized dev environment, see Dev Containers: https://guides.rubyonrails.org/getting_started_with_devcontainer.html
-
 ARG RUBY_VERSION=3.4.3
 FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
 
@@ -46,5 +44,5 @@ USER 1000:1000
 
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
-EXPOSE 80
+EXPOSE 3001
 CMD ["./bin/thrust", "./bin/rails", "server"]
