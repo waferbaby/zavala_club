@@ -14,7 +14,12 @@ class Poem < ApplicationRecord
     contents = Poefy::Poem.new(database_path, local: true).poem(options).join("\n")
     return nil unless contents.length > 0
 
-    create!(form: form, contents: contents)
+    digest = Digest::SHA256.hexdigest(contents)[0...10]
+
+    match = Poem.find_by(digest: digest)
+    return match if match.present?
+
+    create!(digest: digest, form: form, contents: contents)
   end
 
   def to_s
