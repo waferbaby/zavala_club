@@ -2,6 +2,7 @@
 
 <footer>
   <p>
-    <a href="/<%= @poem.digest %>" title="A link to this poem."><%= @poem.digest %></a>
+    <a href="/" title="Create a new poem.">New Poem</a> /
+    <a href="/<%= @poem.digest %>" title="A link to this poem." onClick="showShareMenu('/<%= @poem.digest %>/');">Copy Link</a>
   </p>
 </footer>

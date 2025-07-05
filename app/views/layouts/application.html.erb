@@ -11,6 +11,15 @@
     <%= yield :head %>
 
     <%= stylesheet_link_tag :app %>
+    <%= javascript_tag type: 'application/javascript' do -%>
+      function showShareMenu(path) {
+        if (window.navigator.share) {
+          window.navigator.share({ title: 'Zavala Club / Poem', url: "https://zavala.club" + path });
+        } else {
+          return true;
+        }
+      }
+    <% end -%>
   </head>
 
   <body>
