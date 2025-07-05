@@ -1,2 +1,2 @@
-module PoetryHelper
+module PoemsHelper
 end
