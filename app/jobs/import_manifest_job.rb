@@ -4,7 +4,7 @@ class ImportManifestJob < ApplicationJob
   queue_as :default
 
   def perform(*args)
-    Restiny.api_key = ENV["DESTINY_API_KEY"]
+    Restiny.api_key = Rails.application.credentials.destiny.api_key
 
     Rails.logger.info("Fetching latest lore manifest...")
 
