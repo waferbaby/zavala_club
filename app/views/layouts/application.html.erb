@@ -13,8 +13,13 @@
     <%= stylesheet_link_tag :app %>
     <%= javascript_tag type: 'application/javascript' do -%>
       function showShareMenu(path) {
+        window.event.preventDefault();
+
         if (window.navigator.share) {
-          window.navigator.share({ title: 'Zavala Club / Poem', url: "https://zavala.club" + path });
+          window.navigator.share({
+            title: 'Zavala Club / Poem',
+            url: "https://zavala.club" + path
+          }).then(result => {}).catch(error => {});
         } else {
           return true;
         }
