@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://zavala.club/<%= @poem.digest if @poem.present? %>" />
+    <meta property="og:title" content="Zavala Club<%= " / Poem" if @poem.present? %>" />
+    <meta property="og:description" content="Destiny-related poems for you." />
+
+    <% if @poem.present? %>
+      <meta property="og:image" content="https://zavala.club/<%= @poem.digest %>.jpg" />
+    <% end %>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
