@@ -15,7 +15,7 @@ test:
 
 production:
   primary:
-    database: storage/production.sqlite3
+    <<: *default
   cache:
     database: storage/production_cache.sqlite3
     migrations_paths: db/cache_migrate
