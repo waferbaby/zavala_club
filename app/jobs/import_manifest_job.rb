@@ -1,4 +1,4 @@
-require "poefy/sqlite3"
+require "poefy/pg"
 
 class ImportManifestJob < ApplicationJob
   queue_as :default
@@ -11,8 +11,7 @@ class ImportManifestJob < ApplicationJob
     manifest = Restiny.download_manifest_json(definitions: [ Restiny::ManifestDefinition::LORE ])
     path = manifest.values.first
 
-    database_path = Rails.root.join("storage", "corpus.sqlite3")
-    poefy = Poefy::Poem.new(database_path, local: true)
+    poefy = Poefy::Poem.new("destiny")
     lines = []
 
     Rails.logger.info("Preparing data...")
@@ -25,7 +24,7 @@ class ImportManifestJob < ApplicationJob
       end
     end.compact.join("\n")
 
-    Rails.logger.info("Storing lines in #{database_path}...")
+    Rails.logger.info("Storing lines...")
 
     poefy.make_database!(lines)
     poefy.close

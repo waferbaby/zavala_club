@@ -11,7 +11,7 @@ class Poem < ApplicationRecord
 
     options[:form] = form
 
-    contents = Poefy::Poem.new(database_path, local: true).poem(options).join("\n")
+    contents = Poefy::Poem.new("destiny").poem(options).join("\n")
     return nil unless contents.length > 0
 
     digest = Digest::SHA256.hexdigest(contents)[0...16]
@@ -24,9 +24,5 @@ class Poem < ApplicationRecord
 
   def to_s
     contents.downcase
-  end
-
-  def self.database_path
-    Rails.root.join("storage", "corpus.sqlite3")
   end
 end
