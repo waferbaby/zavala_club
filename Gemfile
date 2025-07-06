@@ -14,6 +14,7 @@ gem "puma", ">= 5.0"
 gem "restiny", "~> 7.0"
 gem "solid_cache"
 gem "solid_queue"
+gem "sqlite3"
 gem "thruster", require: false
 gem "vips", "~> 8.15"
 
