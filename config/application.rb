@@ -14,6 +14,7 @@ module ZavalaClub
   class Application < Rails::Application
     config.load_defaults 8.0
 
+    config.active_storage.service = :local
     config.assets.paths << Rails.root.join("app/assets/fonts")
     config.autoload_lib(ignore: %w[assets tasks])
     config.generators.system_tests = nil
