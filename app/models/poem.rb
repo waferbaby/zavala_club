@@ -17,7 +17,7 @@ class Poem < ApplicationRecord
 
     options[:form] = form
 
-    contents = Poefy::Poem.new("destiny").poem(options).join("\n")
+    contents = Poefy::Poem.new("destiny").poem(options).join("\n").downcase
     return nil unless contents.length > 0
 
     digest = Digest::SHA256.hexdigest(contents)[0...16]
@@ -29,14 +29,18 @@ class Poem < ApplicationRecord
   end
 
   def to_s
-    contents.downcase
+    contents
+  end
+
+  def to_a
+    contents.split("\n").each(&:strip!)
   end
 
   private
 
   def generate_preview
     text = Vips::Image.text(
-      self.to_s,
+      to_s,
       font: "alice",
       fontfile: Rails.root.join("app", "assets", "fonts", "alice.ttf").to_s,
       dpi: 300
