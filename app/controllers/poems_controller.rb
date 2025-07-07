@@ -10,7 +10,7 @@ class PoemsController < ApplicationController
     respond_to do |format|
       format.html
       format.text { render plain: @poem.to_s }
-      format.json { render json: { id: @poem.digest, contents: @poem.contents } }
+      format.json { render json: { id: @poem.digest, form: @poem.form.to_s, contents: @poem.to_a } }
       format.jpeg { send_data poem_preview_data(@poem), type: "image/jpeg", disposition: "inline" }
     end
   end
