@@ -12,3 +12,6 @@ development:
 
 test:
   <<: *default
+
+production:
+  <<: *default
