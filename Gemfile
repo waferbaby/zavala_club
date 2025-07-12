@@ -17,6 +17,7 @@ gem "solid_queue"
 gem "sqlite3"
 gem "thruster", require: false
 gem "vips", "~> 8.15"
+gem "yonder"
 
 group :development, :test do
   gem "brakeman", require: false
