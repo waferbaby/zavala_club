@@ -1,0 +1,4 @@
+production:
+  bluesky:
+    class: PostToBlueskyJob
+    schedule: "0 */4 * * *"
