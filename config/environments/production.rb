@@ -18,5 +18,4 @@ Rails.application.configure do
   config.logger   = ActiveSupport::TaggedLogging.logger(STDOUT)
   config.public_file_server.headers = { "cache-control" => "public, max-age=#{1.year.to_i}" }
   config.silence_healthcheck_path = "/up"
-  config.solid_queue.connects_to = { database: { writing: :queue } }
 end
