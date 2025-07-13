@@ -15,7 +15,7 @@ class PostToBlueskyJob < ApplicationJob
     rescue Yonder::TokenExpiredError => e
       Rails.logger.warn("Auth token expired - requesting new tokens")
 
-      if Yonder.renew_session(session[:refresh_token])
+      if Yonder.renew_session(session.refresh_token)
         Rails.cache.write(:zavala_club_bluesky_session, Marshal.dump(Yonder.session))
         self.perform_later(poem_id: poem.id)
       end
