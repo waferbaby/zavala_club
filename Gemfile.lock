@@ -310,7 +310,7 @@ GEM
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     wordfilter (0.2.6)
-    yonder (0.3)
+    yonder (0.4)
       httpx (~> 1.5)
     zeitwerk (2.7.3)
 
