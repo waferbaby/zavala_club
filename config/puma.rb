@@ -4,6 +4,6 @@ threads threads_count, threads_count
 port ENV.fetch("PORT", 3001)
 
 plugin :tmp_restart
-plugin :solid_queue if ENV["SOLID_QUEUE_IN_PUMA"]
+plugin :solid_queue
 
 pidfile ENV["PIDFILE"] if ENV["PIDFILE"]
