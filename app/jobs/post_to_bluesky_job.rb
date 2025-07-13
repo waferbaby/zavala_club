@@ -17,7 +17,7 @@ class PostToBlueskyJob < ApplicationJob
 
       if Yonder.refresh_session
         Rails.cache.write(:zavala_club_bluesky_session, Marshal.dump(Yonder.session))
-        self.perform_later(poem_id: poem.id)
+        PostToBlueskyJob.perform_later(poem_id: poem.id)
       end
     end
   rescue Yonder::Error => e
