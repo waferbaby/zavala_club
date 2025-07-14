@@ -40,5 +40,5 @@ pre a {
 }
 
 @media all and (max-width: 600px) {
-  pre { font-size: 150%; }
+  pre { font-size: 140%; }
 }
