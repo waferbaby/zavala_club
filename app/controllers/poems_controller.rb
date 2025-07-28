@@ -6,7 +6,7 @@ class PoemsController < ApplicationController
   end
 
   def show
-    @poem = Poem.find_by!(digest: params[:id])
+    @poem = Poem.find_by!(digest: params[:digest])
 
     respond_to do |format|
       format.html
