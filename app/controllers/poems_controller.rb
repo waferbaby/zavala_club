@@ -1,6 +1,7 @@
 class PoemsController < ApplicationController
   def create
     @poem = Poem.generate
+
     render :show
   end
 
