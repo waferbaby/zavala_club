@@ -7,7 +7,7 @@ class Poem < ApplicationRecord
 
   after_create :generate_preview
 
-  def self.generate(form = :haiku)
+  def self.generate(form = :haiku, source = :lore)
     options = { proper: false }
 
     case form
@@ -17,7 +17,7 @@ class Poem < ApplicationRecord
 
     options[:form] = form
 
-    contents = Poefy::Poem.new("destiny").poem(options).join("\n").downcase
+    contents = Poefy::Poem.new("destiny_#{source}").poem(options).join("\n").downcase
     return nil unless contents.length > 0
 
     digest = Digest::SHA256.hexdigest(contents)[0...16]
