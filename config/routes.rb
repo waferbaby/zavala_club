@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root "poems#create"
-  resources :poems, only: [ :create, :show ], path: ""
+  get "/:digest", to: "poems#show"
 
   match "*any", to: "application#handle_error", via: :all
 end
