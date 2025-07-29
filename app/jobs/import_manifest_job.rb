@@ -9,8 +9,10 @@ class ImportManifestJob < ApplicationJob
     Rails.logger.info("Fetching latest manifests...")
 
     definitions = [
+      Restiny::ManifestDefinition::ACTIVITY,
       Restiny::ManifestDefinition::INVENTORY_ITEM,
-      Restiny::ManifestDefinition::LORE
+      Restiny::ManifestDefinition::LORE,
+      Restiny::ManifestDefinition::OBJECTIVE
     ]
 
     poefy = Poefy::Poem.new("destiny")
@@ -23,10 +25,12 @@ class ImportManifestJob < ApplicationJob
 
       JSON.parse(File.read(path)).map do |key, entry|
         text = case source
-        when :lore
-                 entry.dig("displayProperties", "description")
+        when :activity, :lore
+          entry.dig("displayProperties", "description")
         when :inventory_item
-                 entry["flavorText"]
+          entry["flavorText"]
+        when :objective
+          entry["progressDescription"]
         end
 
         next if text.nil?
@@ -41,7 +45,7 @@ class ImportManifestJob < ApplicationJob
 
     Rails.logger.info("Storing #{lines.count} lines...")
 
-    poefy.make_database!(lines.compact.join("\n"))
+    poefy.make_database!(lines.compact.uniq.join("\n"))
     poefy.close
 
     Rails.logger.info("Done.")
