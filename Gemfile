@@ -6,7 +6,7 @@ gem "activestorage", "~> 8.0"
 gem "bootsnap", require: false
 gem "dotenv", "~> 3.1"
 gem "image_processing", "~> 1.14"
-gem "pg", "~> 1.5"
+gem "pg", "~> 1.6"
 gem "poefy", ">= 2.0"
 gem "poefy-pg", "~> 2.0"
 gem "propshaft"
